@@ -27,12 +27,15 @@ def main():
             file_format = content.replace('.', '!')
     except FileNotFoundError:
         print('Файл с таким именем не найден')
+        file_format = ''
         
-    with open('referat2.txt', 'w', encoding='utf-8') as f2:
-        try:
-            f2.write(file_format)
-        except UnboundLocalError:
-            print('Файл не удалось записать')
+    if file_format:
+        with open('referat2.txt', 'w', encoding='utf-8') as f2:
+            try:
+                f2.write(file_format)
+                print('Новый файл успешно создан')
+            except UnboundLocalError:
+                print('Файл не удалось записать')
 
 
 if __name__ == "__main__":
